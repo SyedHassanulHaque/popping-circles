@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animation With Canvas</title>
+
+    <style>
+        div{
+           width: 100vw;
+           height: 100vh;
+           
+       }
+       #canvas{
+        width: 100vw;
+           height: 100vh;
+           background:black;
+
+       }
+   </style>
+
+</head>
+<body>
+        <div>
+        <canvas id='canvas'></canvas>
+    </div>
+
+    <script>
+         canvas=document.getElementById('canvas');
+        context=canvas.getContext("2d");
+        
+        var y=10;
+        var step=5;
+                function bounce(){
+            context.clearRect(0,0,400,400);
+
+            context.beginPath();
+            context.arc(100,y,10,0,2*Math.PI);
+        context.fillStyle='red';
+        context.fill();
+            y+=step;
+            if(y>=100 || y<=10){
+                step*= -1;
+            }
+        }
+        setInterval(bounce,50);
+      
+    </script>
+</body>
+</html>
